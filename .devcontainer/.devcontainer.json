@@ -1,0 +1,27 @@
+{
+	"name": "spanner-codespaces",
+	"features": {
+		"node": {
+			"version": "lts",
+			"nodeGypDependencies": true
+		},
+		"ghcr.io/dhoeric/features/google-cloud-cli:1": {}
+	},
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "spanner",
+	"forwardPorts": [5432],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.tabSize": 2,
+				"editor.insertSpaces": false
+			},
+			"extensions": [
+				"mtxr.sqltools",
+				"mtxr.sqltools-driver-pg",
+				"google-cloud-spanner-ecosystem.google-cloud-spanner-driver"
+			]
+		}
+	}
+	
+}
