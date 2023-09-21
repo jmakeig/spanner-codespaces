@@ -1,0 +1,17 @@
+{
+  "name": "spanner-codespaces",
+  "version": "0.0.1",
+  "description": "GitHub Codespaces skeleton project for development against a Cloud Spanner PostgreSQL database",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Spanner"
+  ],
+  "author": "Justin Makeig <jmakeig@google.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "node-postgres": "^0.6.2"
+  }
+}
