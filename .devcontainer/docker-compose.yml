@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  spanner:
+    image: gcr.io/cloud-spanner-pg-adapter/pgadapter
+    restart: unless-stopped
+  
+  # spanner-emulator:
+  #   image: gcr.io/cloud-spanner-emulator/emulator
+  #   restart: unless-stopped
+ 
+  # postgres:
+  #   image: postgres:latest
+  #   restart: unless-stopped
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_DB: postgres
+  #     POSTGRES_PASSWORD: postgres
+
+    # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+# volumes:
+#   postgres-data:
