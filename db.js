@@ -20,6 +20,10 @@ function wrap_error(error) {
 }
 
 export function create_connection() {
+	/**
+	 * 
+	 * @returns {pg.Pool}
+	 */
 	function connect() {
 		const config = {
 			host: 'localhost',
@@ -34,6 +38,11 @@ export function create_connection() {
 		async close() {
 			return await database.end();
 		},
+		/**
+		 * 
+		 * @param {function} runner 
+		 * @returns {Promise<pg.QueryResult<any>>} 
+		 */
 		async transaction(runner) {
 			const client = await database.connect();
 			let res;
@@ -51,6 +60,12 @@ export function create_connection() {
 				client.release();
 			}
 		},
+		/**
+		 * 
+		 * @param {string} statement 
+		 * @param {any[]} params 
+		 * @returns {Promise<pg.QueryResult<any>>}
+		 */
 		async query(statement, params = []) {
 			try {
 				return await database.query(statement, params);
