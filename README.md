@@ -10,10 +10,12 @@ This set-up uses Node.js, but can easlily be configured to run any stack, using 
    This will build a container and launch a pre-configured VS Code instance in your browser. It may take several minutes the first time.
 1. From VS Code, make a copy of the file, `.env.EXAMPLE` in your project and name it, `.env`.
 1. Update the values in `.env` to your GCP project and Spanner instance and database names. These will be used to connect to Spanner from your application.
-1. Authenticate your terminal session to Google Cloud
+1. From the VS Code terminal—_not_ a local terminal on your laptop—authenticate with Google Cloud
   
 	`gcloud config set project «your-project-name» && gcloud auth application-default login`
 	
 	When prompted, follow the link to login in your browser and paste the generated authentication code back into the VS Code terminal.
+
+	Note that `gcloud` stores authentication state in environment variables associated with the terminal session that runs `gcloud auth`. Thus you need to run your application (`./test.js` here) in that same session to use `application-default` authentication. Service accounts avoid this by storing auth tokens in a JSON file, local to your app. However, that involves more set-up. 
 1. In the terminal window of VS Code, run `npm install` 
 1. Run `./test.js` to connect to the database and run a (read-only) query
