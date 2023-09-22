@@ -12,10 +12,7 @@
 	"forwardPorts": [5432],
 	"customizations": {
 		"vscode": {
-			"settings": {
-				"editor.tabSize": 2,
-				"editor.insertSpaces": false
-			},
+			"settings": {},
 			"extensions": [
 				"editorconfig.editorconfig",
 				"mtxr.sqltools",
