@@ -1,20 +1,15 @@
 #!/usr/bin/env node
 
-// https://stackoverflow.com/questions/55377103/can-i-import-the-node-postgres-module-pg-or-is-it-commonjs-only#comment131338205_55378800
-import pg from 'pg'
-
-const { Pool } = pg
-const pool = new Pool({
-	host: 'localhost',
-	port: 5432,
-	database: 'projects/google.com:cloud-spanner-demo/instances/jmakeig-test/databases/pipeline'
-});
+import { create_connection } from './db.js';
+const db = create_connection();
 
 try {
-	const result = await pool.query(`SELECT now();`);
-	console.log(await result.rows[0]);
-} catch (err) {
-	console.error(err.message);
+	const retults = await db.query(`SELECT $1 AS message, now() AS now;`, ['Hello!']);
+	console.log(retults.rows[0]);
+} catch (error) {
+	console.error(error.message);
 	process.exit(1);
+} finally {
+	await db.close();
 }
 process.exit(0);
