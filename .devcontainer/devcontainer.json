@@ -17,6 +17,7 @@
 				"editor.insertSpaces": false
 			},
 			"extensions": [
+				"editorconfig.editorconfig",
 				"mtxr.sqltools",
 				"mtxr.sqltools-driver-pg",
 				"google-cloud-spanner-ecosystem.google-cloud-spanner-driver"
